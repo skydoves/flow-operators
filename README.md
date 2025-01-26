@@ -105,7 +105,7 @@ private fun Main(mainViewModel: MainViewModel) {
       .padding(6.dp)
       .verticalScroll(rememberScrollState()),
   ) {
-    Button(onClick = { mainViewModel.restart() }) {
+    Button(onClick = { mainViewModel.refresh() }) {
       Text(text = "restart")
     }
 
