@@ -88,7 +88,7 @@ class MainViewModel(mainRepository: MainRepository) : ViewModel() {
 
   val posters: StateFlow<List<Poster>> = restartablePoster // don't expose the Restartable interface to the outside
 
-  fun restart() = restartablePoster.restart()
+  fun refresh() = restartablePoster.restart()
 }
 ```
 
