@@ -7,6 +7,7 @@ public final class com/skydoves/flow/operators/onetime/OnetimeStateInKt {
 
 public final class com/skydoves/flow/operators/onetime/OnetimeWhileSubscribed : kotlinx/coroutines/flow/SharingStarted {
 	public fun <init> (JJ)V
+	public synthetic fun <init> (JJILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun command (Lkotlinx/coroutines/flow/StateFlow;)Lkotlinx/coroutines/flow/Flow;
 	public fun equals (Ljava/lang/Object;)Z
 	public fun hashCode ()I
