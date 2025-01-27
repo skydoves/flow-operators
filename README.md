@@ -13,7 +13,7 @@
 
 ## Flow Operators
 
-Flow operators that enable you to create restartable, pausable, or one-shot `StateFlow` instances, allowing you to customize and control additional behaviors for `StateFlow` based on your specific use case. Why are flow operators useful? You can manage state and control data streams efficiently in complex scenarios. You can more about the reasons in [Loading Initial Data on Android Part 2: Clear All Your Doubts](https://medium.com/proandroiddev/loading-initial-data-part-2-clear-all-your-doubts-0f621bfd06a0).
+Flow operators that enable you to create restartable, pausable, or one-shot `StateFlow` instances, allowing you to customize and control additional behaviors for `StateFlow` based on your specific use case. Why are flow operators useful? You can manage state and control data streams efficiently in complex scenarios. You can read more about the reasons in [Loading Initial Data on Android Part 2: Clear All Your Doubts](https://medium.com/proandroiddev/loading-initial-data-part-2-clear-all-your-doubts-0f621bfd06a0).
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.skydoves/flow-operators.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.skydoves%22%20AND%20a:%22flow-operators%22)
 
