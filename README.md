@@ -59,7 +59,7 @@ sourceSets {
 
 `RestartableStateFlow` extends both `StateFlow` and `Restartable`, allowing the upstream flow to restart its emission. It behaves like a regular `StateFlow` but includes the ability to reset and restart the emission process when necessary.
 
-Consider a scenario where you load initial data using a delegate property, as shown in the example below, instead of initiating the load inside `LaunchedEffect` or `ViewModel.init()`. (For more details, check out [Loading Initial Data in LaunchedEffect vs. ViewModel](https://medium.com/proandroiddev/loading-initial-data-in-launchedeffect-vs-viewmodel-f1747c20ce62)).
+Consider a scenario where you load initial data using a property, as shown in the example below, instead of initiating the load inside `LaunchedEffect` or `ViewModel.init()`. (For more details, check out [Loading Initial Data in LaunchedEffect vs. ViewModel](https://medium.com/proandroiddev/loading-initial-data-in-launchedeffect-vs-viewmodel-f1747c20ce62)).
 
 ```kotlin
 val posters: StateFlow<List<Poster>> = mainRepository.fetchPostersFlow()
@@ -72,7 +72,7 @@ val posters: StateFlow<List<Poster>> = mainRepository.fetchPostersFlow()
 )
 ```
 
-By using a delegate property, the data is loaded only when the first subscription occurs, preventing the unnecessary immediate execution of tasks and avoiding unintended side effects that might arise from `ViewModel.init()` or `LaunchedEffect`. However, another challenge arises: you may need to reload the data due to scenarios like refreshing, recovering from errors during the initial load, or other reasons. In such cases, you can seamlessly restart the upstream flow using `RestartableStateFlow`.
+By using a property, the data is loaded only when the first subscription occurs, preventing the unnecessary immediate execution of tasks and avoiding unintended side effects that might arise from `ViewModel.init()` or `LaunchedEffect`. However, another challenge arises: you may need to reload the data due to scenarios like refreshing, recovering from errors during the initial load, or other reasons. In such cases, you can seamlessly restart the upstream flow using `RestartableStateFlow`.
 
 ```kotlin
 class MainViewModel(mainRepository: MainRepository) : ViewModel() {
@@ -92,7 +92,7 @@ class MainViewModel(mainRepository: MainRepository) : ViewModel() {
 }
 ```
 
-Now, you can easily restart the upstream flow and reload the initial task using the delegated property.
+Now, you can easily restart the upstream flow and reload the initial task using the property.
 
 ```kotlin
 @Composable
