@@ -30,6 +30,7 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.dropWhile
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.transformLatest
+import kotlin.time.Duration
 
 /**
  * Create an upstream cold flow as a StateFlow that triggers the upstream operation only once,
@@ -69,21 +70,21 @@ public fun <T> Flow<T>.onetimeStateIn(
  * designed to limit upstream emissions to only once. After the initial emission,
  * it remains inactive until an active subscriber reappears.
  *
- * @param stopTimeout configures a delay (in milliseconds) between the disappearance of the last
+ * @param stopTimeout configures a delay (as [Duration]) between the disappearance of the last
  * subscriber and the stopping of the sharing coroutine. It defaults to zero (stop immediately).
- * @param replayExpiration configures a delay (in milliseconds) between the stopping of
+ * @param replayExpiration configures a delay (as [Duration]) between the stopping of
  * the sharing coroutine and the resetting of the replay cache (which makes the cache empty for the
  * [shareIn] operator and resets the cached value to the original `initialValue`
  * for the [stateIn] operator). It defaults to `Long.MAX_VALUE` (keep replay cache forever,
  * never reset buffer). Use zero value to expire the cache immediately.
  */
 public fun SharingStarted.Companion.OnetimeWhileSubscribed(
-  stopTimeout: Long,
-  replayExpiration: Long = Long.MAX_VALUE,
+  stopTimeout: Duration,
+  replayExpiration: Duration = Duration.INFINITE,
 ): OnetimeWhileSubscribed {
   return OnetimeWhileSubscribed(
-    stopTimeout = stopTimeout,
-    replayExpiration = replayExpiration,
+    stopTimeout = stopTimeout.inWholeMilliseconds,
+    replayExpiration = replayExpiration.inWholeMilliseconds,
   )
 }
 
