@@ -56,7 +56,7 @@ public fun <T> Flow<T>.onetimeStateIn(
 ): StateFlow<T> {
   return stateIn(
     scope = scope,
-    started = OnetimeWhileSubscribed(
+    started = SharingStarted.OnetimeWhileSubscribed(
       stopTimeout = stopTimeout,
       replayExpiration = replayExpiration,
     ),
@@ -80,8 +80,8 @@ public fun <T> Flow<T>.onetimeStateIn(
 public fun SharingStarted.Companion.OnetimeWhileSubscribed(
   stopTimeout: Long,
   replayExpiration: Long = Long.MAX_VALUE,
-): OnetimeWhileSubscribed {
-  return OnetimeWhileSubscribed(
+): SharingStarted {
+  return OnetimeWhileSubscribedImpl(
     stopTimeout = stopTimeout,
     replayExpiration = replayExpiration,
   )
@@ -99,7 +99,7 @@ public fun SharingStarted.Companion.OnetimeWhileSubscribed(
  * for the [stateIn] operator). It defaults to `Long.MAX_VALUE` (keep replay cache forever,
  * never reset buffer). Use zero value to expire the cache immediately.
  */
-public class OnetimeWhileSubscribed(
+internal class OnetimeWhileSubscribedImpl(
   private val stopTimeout: Long,
   private val replayExpiration: Long = Long.MAX_VALUE,
 ) : SharingStarted {
@@ -144,7 +144,7 @@ public class OnetimeWhileSubscribed(
 
   // equals & hashcode to facilitate testing, not documented in public contract
   override fun equals(other: Any?): Boolean =
-    other is OnetimeWhileSubscribed &&
+    other is OnetimeWhileSubscribedImpl &&
       stopTimeout == other.stopTimeout &&
       replayExpiration == other.replayExpiration
 

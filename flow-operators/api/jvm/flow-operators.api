@@ -1,17 +1,8 @@
 public final class com/skydoves/flow/operators/onetime/OnetimeStateInKt {
-	public static final fun OnetimeWhileSubscribed (Lkotlinx/coroutines/flow/SharingStarted$Companion;JJ)Lcom/skydoves/flow/operators/onetime/OnetimeWhileSubscribed;
-	public static synthetic fun OnetimeWhileSubscribed$default (Lkotlinx/coroutines/flow/SharingStarted$Companion;JJILjava/lang/Object;)Lcom/skydoves/flow/operators/onetime/OnetimeWhileSubscribed;
+	public static final fun OnetimeWhileSubscribed (Lkotlinx/coroutines/flow/SharingStarted$Companion;JJ)Lkotlinx/coroutines/flow/SharingStarted;
+	public static synthetic fun OnetimeWhileSubscribed$default (Lkotlinx/coroutines/flow/SharingStarted$Companion;JJILjava/lang/Object;)Lkotlinx/coroutines/flow/SharingStarted;
 	public static final fun onetimeStateIn (Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/CoroutineScope;JJLjava/lang/Object;)Lkotlinx/coroutines/flow/StateFlow;
 	public static synthetic fun onetimeStateIn$default (Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/CoroutineScope;JJLjava/lang/Object;ILjava/lang/Object;)Lkotlinx/coroutines/flow/StateFlow;
-}
-
-public final class com/skydoves/flow/operators/onetime/OnetimeWhileSubscribed : kotlinx/coroutines/flow/SharingStarted {
-	public fun <init> (JJ)V
-	public synthetic fun <init> (JJILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public fun command (Lkotlinx/coroutines/flow/StateFlow;)Lkotlinx/coroutines/flow/Flow;
-	public fun equals (Ljava/lang/Object;)Z
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
 }
 
 public abstract interface class com/skydoves/flow/operators/pausable/Pausable {
