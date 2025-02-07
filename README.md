@@ -24,7 +24,7 @@ If you're using Version Catalog, you can configure the dependency by adding it t
 ```toml
 [versions]
 #...
-flowOperators = "0.1.0"
+flowOperators = "0.1.1"
 
 [libraries]
 #...
