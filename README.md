@@ -160,7 +160,7 @@ class MainViewModel(mainRepository: MainRepository) : ViewModel() {
       .mapLatest { it.getOrThrow() }
       .stateIn(
         scope = viewModelScope,
-        started = OnetimeWhileSubscribed(5_000),
+        started = SharingStarted.OnetimeWhileSubscribed(5_000),
         initialValue = emptyList(),
       )
 }
